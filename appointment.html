@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointments | CityCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">✚ CityCare</div>
+  <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"/>
+  </svg>
+</button>
+
+</nav>
+
+<section class="dashboard">
+  <h2 class="dash-title">Doctor Appointments</h2>
+
+  <div class="table-card">
+    <table>
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rahul Sharma</td>
+          <td>15 Dec 2025</td>
+          <td>10:30 AM</td>
+          <td class="status confirmed">Confirmed</td>
+        </tr>
+        <tr>
+          <td>Anita Verma</td>
+          <td>16 Dec 2025</td>
+          <td>12:00 PM</td>
+          <td class="status pending">Pending</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | CityCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" onclick="location.href='index.html'">
+    <span class="logo-icon">✚</span>CityCare
+  </div>
+
+  <!-- SVG MOON TOGGLE -->
+  <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon" viewBox="0 0 24 24">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"/>
+    </svg>
+  </button>
+</nav>
+
+<!-- LOGIN PAGE -->
+<section class="auth-page">
+  <div class="auth-card animate-in">
+    <h2>Welcome Back</h2>
+    <p class="auth-subtitle">Login to CityCare</p>
+
+    <div class="field">
+      <input id="email" type="email" placeholder="Email">
+      <small class="error" id="emailError"></small>
+    </div>
+
+    <div class="field password-field">
+      <input id="password" type="password" placeholder="Password">
+
+      <!-- SVG EYE -->
+      <span class="eye" onclick="togglePassword()" aria-label="Toggle password">
+        <svg id="eyeIcon" class="icon" viewBox="0 0 24 24">
+          <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </span>
+
+      <small class="error" id="passwordError"></small>
+    </div>
+
+    <div class="remember-wrapper">
+      <div class="remember-container">
+        <input type="checkbox" id="remember">
+        <label for="remember">Remember me</label>
+      </div>
+    </div>
+
+    <button id="loginBtn" class="primary" onclick="loginUser()">
+      <span class="btn-text">Login</span>
+      <span class="spinner hidden"></span>
+    </button>
+
+    <p class="forgot" onclick="openForgot()">Forgot password?</p>
+
+    <p class="auth-footer">
+      Don’t have an account?
+      <a href="role.html?next=signup">Sign up</a>
+    </p>
+  </div>
+</section>
+
+<!-- FORGOT PASSWORD MODAL -->
+<div class="modal-overlay hidden" id="forgotModal" onclick="backdropClose(event)">
+  <div class="modal-card animate-in">
+    <h3 id="modalTitle">Reset Password</h3>
+    <p id="modalText">Enter your email to reset your password</p>
+
+    <input id="resetEmail" type="email" placeholder="Email">
+
+    <button class="primary" onclick="sendResetLink()">Send Link</button>
+    <button class="modal-close" onclick="closeForgot()">Cancel</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Choose Role | CityCare</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* FORCE VISIBILITY (IMPORTANT FIX) */
+    .role-wrapper {
+      min-height: calc(100vh - 72px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .role-container {
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .role-container h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    .role-subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .role-card {
+      background: var(--card);
+      padding: 45px 35px;
+      border-radius: 26px;
+      cursor: pointer;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.12);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .role-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 45px 90px rgba(0,0,0,0.2);
+    }
+
+    .role-icon {
+      font-size: 54px;
+      margin-bottom: 20px;
+    }
+
+    .role-card h3 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .role-card p {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo" onclick="location.href='index.html'">
+    <span class="logo-icon">✚</span>CityCare
+  </div>
+
+  <div class="nav-actions">
+    <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"/>
+  </svg>
+</button>
+
+  </div>
+</nav>
+
+<!-- ROLE SELECTION -->
+<section class="role-wrapper">
+  <div class="role-container">
+    <span class="section-tag">GET STARTED</span>
+    <h1>Continue as</h1>
+    <p class="role-subtitle">
+      Choose how you want to use CityCare
+    </p>
+
+    <div class="role-grid">
+      <div class="role-card" onclick="go('patient')">
+        <div class="role-icon">👤</div>
+        <h3>Patient</h3>
+        <p>Find doctors, book appointments, and manage your healthcare.</p>
+      </div>
+
+      <div class="role-card" onclick="go('doctor')">
+        <div class="role-icon">🩺</div>
+        <h3>Doctor</h3>
+        <p>Manage appointments, view patients, and grow your practice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+/* DARK MODE */
+function toggleTheme() {
+  document.body.classList.toggle("dark");
+  localStorage.setItem(
+    "theme",
+    document.body.classList.contains("dark") ? "dark" : "light"
+  );
+}
+if (localStorage.getItem("theme") === "dark") {
+  document.body.classList.add("dark");
+}
+
+/* NAVIGATION */
+const next = new URLSearchParams(location.search).get("next");
+function go(role) {
+  location.href = `${next}.html?role=${role}`;
+}
+</script>
+
+</body>
+</html>

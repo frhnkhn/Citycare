@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CityCare | Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo" onclick="location.href='index.html'">CityCare</div>
+</nav>
+
+<div class="container fade-in">
+
+  <section id="auth" class="card">
+    <h2 id="title"></h2>
+
+    <input id="name" placeholder="Full Name">
+    <input id="email" placeholder="Email">
+    <input id="password" type="password" placeholder="Password">
+
+    <input id="city" placeholder="City (Doctor only)">
+    <input id="spec" placeholder="Specialization (Doctor only)">
+
+    <button class="primary" onclick="signup()">Sign Up</button>
+    <button class="secondary" onclick="login()">Login</button>
+  </section>
+
+  <section id="patient" class="hidden">
+    <h2>Find Doctors</h2>
+    <input id="searchCity" placeholder="Enter city">
+    <button class="primary" onclick="loadDoctors()">Search</button>
+    <div id="doctors" class="grid"></div>
+  </section>
+
+  <section id="doctor" class="hidden">
+    <h2>Your Appointments</h2>
+    <div id="appointments" class="grid"></div>
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

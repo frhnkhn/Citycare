@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Doctor Profile | CityCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo" onclick="location.href='index.html'">CityCare</div>
+  <div class="toggle" onclick="toggleTheme()">🌙</div>
+</nav>
+
+<div class="container">
+  <div class="card">
+    <img id="docImg" class="doctor-img">
+    <h2 id="docName"></h2>
+    <p id="docSpec"></p>
+    <p><b>City:</b> <span id="docCity"></span></p>
+    <p>
+      Experienced healthcare professional providing quality treatment and
+      patient-first care.
+    </p>
+
+    <input type="date" id="date">
+    <input type="time" id="time">
+    <button class="primary" onclick="bookFromProfile()">Book Appointment</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

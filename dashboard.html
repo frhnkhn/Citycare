@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | CityCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">✚ CityCare</div>
+  <div>
+    <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+  <svg class="icon" viewBox="0 0 24 24">
+    <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"/>
+  </svg>
+</button>
+
+    <button class="primary" style="width:auto;padding:8px 18px" onclick="logout()">Logout</button>
+  </div>
+</nav>
+
+<section class="dashboard">
+
+  <h2 class="dash-title">Welcome to CityCare</h2>
+
+  <div class="dash-grid">
+
+    <div class="dash-card">
+      <h3>Book Appointment</h3>
+      <p>Find doctors and book appointments easily.</p>
+      <button class="primary" onclick="location.href='appointments.html'">Book Now</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>Your Appointments</h3>
+      <p>View your upcoming and past appointments.</p>
+      <button class="primary">View</button>
+    </div>
+
+    <div class="dash-card">
+      <h3>Profile</h3>
+      <p>Update your personal information.</p>
+      <button class="primary">Edit Profile</button>
+    </div>
+
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>

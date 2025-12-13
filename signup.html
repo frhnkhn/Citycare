@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signup | CityCare</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo" onclick="location.href='index.html'">
+    <span class="logo-icon">✚</span>CityCare
+  </div>
+
+  <!-- SVG MOON -->
+  <button class="toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg class="icon" viewBox="0 0 24 24">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 1 0 9.8 9.8z"/>
+    </svg>
+  </button>
+</nav>
+
+<section class="auth-page">
+  <div class="auth-card animate-in">
+    <h2>Create Account</h2>
+    <p class="auth-subtitle">Join CityCare today</p>
+
+    <div class="field">
+      <input id="name" type="text" placeholder="Full Name">
+    </div>
+
+    <div class="field">
+      <input id="email" type="email" placeholder="Email">
+    </div>
+
+    <div class="field password-field">
+      <input id="password" type="password" placeholder="Password">
+
+      <!-- SVG EYE -->
+      <span class="eye" onclick="togglePassword()" aria-label="Toggle password">
+        <svg id="eyeIcon" class="icon" viewBox="0 0 24 24">
+          <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+      </span>
+    </div>
+
+    <div class="field">
+      <input id="city" type="text" placeholder="City (Doctor only)">
+    </div>
+
+    <div class="field">
+      <input id="spec" type="text" placeholder="Specialization (Doctor only)">
+    </div>
+
+    <button class="primary" onclick="signupUser()">Sign Up</button>
+
+    <p class="auth-footer">
+      Already have an account?
+      <a href="login.html">Login</a>
+    </p>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
