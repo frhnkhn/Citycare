@@ -1,0 +1,66 @@
+<div id="patientFeatures" style="display:none;">
+  <button onclick="window.location.href='search.html'">
+    Find Doctors
+  </button>
+</div>
+
+
+<script>
+function loadDashboard() {
+  const user = JSON.parse(localStorage.getItem("citycare_user"));
+
+  if (!user) {
+    window.location.href = "login.html";
+    return;
+  }
+
+  document.getElementById("username").textContent = user.name;
+
+  if (!user.specialization || user.specialization === "") {
+    document.getElementById("patientFeatures").style.display = "block";
+  }
+
+  else {
+    document.getElementById("patientFeatures").style.display = "none";
+  }
+}
+
+loadDashboard();
+</script>
+
+
+<script>
+const user = JSON.parse(localStorage.getItem("citycare_user"));
+
+if (!user || user.specialization) {
+  alert("Only patients can search for doctors.");
+  window.location.href = "dashboard.html";
+}
+</script>
+
+
+app.get("/search-doctors", (req, res) => {
+  const { city, specialization } = req.query;
+
+  let query = "SELECT * FROM users WHERE specialization IS NOT NULL";
+  let params = [];
+
+  if (city) {
+    query += " AND city LIKE ?";
+    params.push("%" + city + "%");
+  }
+
+  if (specialization) {
+    query += " AND specialization LIKE ?";
+    params.push("%" + specialization + "%");
+  }
+
+  db.all(query, params, (err, rows) => {
+    if (err) return res.json({ success: false });
+
+    return res.json({
+      success: true,
+      doctors: rows
+    });
+  });
+});
