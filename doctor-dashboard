@@ -1,0 +1,66 @@
+<h2>Doctor Dashboard</h2>
+
+<h3 id="doctorName"></h3>
+
+<h3>Your Appointments</h3>
+<div id="appointments"></div>
+
+<script>
+// Load logged-in doctor
+const user = JSON.parse(localStorage.getItem("citycare_user"));
+
+if (!user || !user.specialization) {
+  alert("Only doctors can access this page.");
+  window.location.href = "login.html";
+}
+
+document.getElementById("doctorName").textContent = 
+  "Welcome, Dr. " + user.name;
+
+// Fetch appointments
+async function loadAppointments() {
+  const res = await fetch(`/doctor-appointments?doctorId=${user.id}`);
+  const data = await res.json();
+
+  const container = document.getElementById("appointments");
+  container.innerHTML = "";
+
+  if (!data.success || data.appointments.length === 0) {
+    container.innerHTML = "<p>No appointments yet.</p>";
+    return;
+  }
+
+  data.appointments.forEach(app => {
+    const card = `
+      <div class="appt-card">
+        <p><strong>Patient:</strong> ${app.patientName}</p>
+        <p><strong>Email:</strong> ${app.patientEmail}</p>
+        <p><strong>Date:</strong> ${app.date}</p>
+        <p><strong>Time:</strong> ${app.time}</p>
+        <hr>
+      </div>
+    `;
+    container.innerHTML += card;
+  });
+}
+
+loadAppointments();
+</script>
+
+<style>
+.appt-card {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f2f2f2;
+  border-radius: 8px;
+}
+</style>
+
+
+
+if (user.specialization) {
+  window.location.href = "doctor-dashboard.html";
+} else {
+  window.location.href = "dashboard.html"; // patient
+}
+
